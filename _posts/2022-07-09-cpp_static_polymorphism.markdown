@@ -34,3 +34,5 @@ Compile time에 data형 검사가 발생하기 때문에 일반적으로 dynamic
   
 아래는 static polymophism을 적용해서 구현해본 thread 처리를 위한 framework.  
 <script src="https://gist.github.com/pfpyh/cc8147d1b921c08bc9e63166e3477e0d.js"></script>  
+  
+***
