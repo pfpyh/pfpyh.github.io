@@ -48,6 +48,15 @@ plainwhite:
     #   instance: example.com
     # - username: jekyll2
     #   instance: example.com
+  navigation:
+    - title: "Home"
+      url: /index
+    - title: "C++ / Python"
+      url: /cpp
+    - title: "Environment"
+      url: /env
+    - title: "Others"
+      url: /others
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
@@ -55,7 +64,7 @@ plainwhite:
 # - about.md
 
 # Build settings
-#theme: plainwhite
+theme: plainwhite
 remote_theme: samarsault/plainwhite-jekyll
 
 plugins:
