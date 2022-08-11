@@ -71,5 +71,17 @@ plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
 
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+mathjax:
+  enable: true
+  combo: "tex-svg"
+  tags: "ams"
+
 kramdown:
   hard_wrap: true
+
