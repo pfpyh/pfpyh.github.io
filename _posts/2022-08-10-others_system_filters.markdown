@@ -10,15 +10,13 @@ use_math: true
 예시를 위한 데이터와 구현은 "칼만 필터는 어렵지 않아"라는 책을 참조했습니다.
   
 ## System
-> 각 구성요소들이 상호작용하거나 상호의존하여 복잡하게 얽힌 통일된 하나의 집합체(unified whole)다. 또는 이 용어는 복잡한 사회적 체계의 맥락에서 구조와 행동을 통제하는 규칙들의 집합체를 일컫기도 한다.
-  
+> 각 구성요소들이 상호작용하거나 상호의존하여 복잡하게 얽힌 통일된 하나의 집합체(unified whole)다. 또는 이 용어는 복잡한 사회적 체계의 맥락에서 구조와 행동을 통제하는 규칙들의 집합체를 일컫기도 한다.  
 Ref. <https://ko.wikipedia.org/wiki/%EC%8B%9C%EC%8A%A4%ED%85%9C>
   
 센서 값을 받아 어떤 데이터로 가공한다고 하자. 그러기 위해서는 센서 자체의 특성, 오차, 화이트 노이즈 등 다양한 요소를 고려해야 한다. 이러한 여러 요소를 모두 묶어서 하나의 시스템이라고 볼 수 있다.
   
 ## 제어 공학
-> 제어 이론에 기반하여 동적 시스템의 동작이 원하는 대로 이루어지도록 하는 방법을 연구하는 공학의 한 분야.
-  
+> 제어 이론에 기반하여 동적 시스템의 동작이 원하는 대로 이루어지도록 하는 방법을 연구하는 공학의 한 분야.  
 Ref. <https://namu.wiki/w/%EC%A0%9C%EC%96%B4%EA%B3%B5%ED%95%99>
   
 입력을 통해 원하는 출력이 나오도록 입력을 모델링 / 근사화하여 시스템을 구성하고 이를 제어할 수 있도록 설계하는 과정을 말한다.
@@ -44,16 +42,16 @@ $$
 \begin{aligned} 
 \bar{x}_{t}=\alpha\bar{x}_{t-1}+(1-\alpha){x}_{t} 
 \end{aligned} 
-$$
-
+$$  
+  
 $$
 \begin{aligned} 
 &\bar{x}_{t}: 현재 추정값\\
 &x_{t}: 현재 측정값\\
 &\alpha: 상수 (0 < \alpha < 1)
 \end{aligned} 
-$$
-
+$$  
+  
 위 식에 의해 t-1에 대한 식은 아래와 같이 된다.  
   
 $$ 
@@ -89,8 +87,8 @@ $$
 $$
   
 가 성립한다. 따라서 *1차 LPF는 이전 측정 값일수록 더 작은 가중치를 받는 다는 것을 알 수 있다.*
-
-```cpp
+  
+```cpp  
 // LPF에 대한 구현
 template <typename T>
 class LowPassFilter
@@ -99,11 +97,11 @@ private:
     T _prev;
     T _alpha ;
     bool _first = true;
-
+  
 public:
     LowPassFilter(const T& init, const T& alpha)
         : _prev(init), _alpha(alpha) {};
-
+  
     auto run(const T& x)->T
     {
         if (_first)
@@ -115,8 +113,8 @@ public:
         return _prev;
     };
 };
-```
-
+```  
+  
 ```cpp
 // 사용 예제
 ...
@@ -127,11 +125,11 @@ constexpr char OUTPUT_2nd_SONAR_ALT_CSV[] = "Output_2nd_SonarAlt.csv";
 constexpr double x0 = 0.0;
 constexpr double alpha = 0.4;
 filters::LowPassFilter<double> lpf(x0, alpha);
-
+  
 constexpr uint32_t sample_count = 500;
 CSV csv(SONAR_ALT_CSV);
 auto sonar_map = csv.read(',');
-
+  
 csv.open(OUTPUT_1st_SONAR_ALT_CSV, true);
 std::vector<std::string> write_buf;
 write_buf.push_back(std::string());
@@ -143,4 +141,6 @@ for (uint32_t i = 0; i < sample_count; ++i)
     csv.write(write_buf);
 }
 ...
-```
+```  
+  
+***
