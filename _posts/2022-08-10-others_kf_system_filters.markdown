@@ -40,7 +40,7 @@ Low-Pass filter(이하 LPF)는 저주파 신호는 통과시키고 고주파 신
   
 $$ 
 \begin{aligned} 
-\bar{x}_{t}=\alpha\bar{x}_{t-1}+(1-\alpha){x}_{t} 
+\bar{x}_{t}=\alpha\bar{x}_{t-1}+(1-\alpha){x}_{t}\\
 \end{aligned} 
 $$  
   
@@ -48,7 +48,7 @@ $$
 \begin{aligned} 
 &\bar{x}_{t}: 현재 추정값\\
 &x_{t}: 현재 측정값\\
-&\alpha: 상수 (0 < \alpha < 1)
+&\alpha: 상수 (0 < \alpha < 1)\\
 \end{aligned} 
 $$  
   
@@ -56,7 +56,7 @@ $$
   
 $$ 
 \begin{aligned} 
-\bar{x}_{t-1}=\alpha\bar{x}_{t-2}+(1-\alpha)x_{t-1} 
+\bar{x}_{t-1}=\alpha\bar{x}_{t-2}+(1-\alpha)x_{t-1}\\ 
 \end{aligned} 
 $$  
   
@@ -66,7 +66,7 @@ $$
 \begin{aligned} 
 \bar{x}&=\alpha\bar{x}_{t-1}+(1-\alpha)x_{t}\\
 &=\alpha(\alpha\bar{x}_{t-2}+(1-\alpha)x_{t-1})+(1-\alpha)x_{t}\\
-&=\alpha^2\bar{x}_{t-2}+\alpha(-\alpha)x_{t-1}+(1-\alpha)x_{t}
+&=\alpha^2\bar{x}_{t-2}+\alpha(-\alpha)x_{t-1}+(1-\alpha)x_{t}\\
 \end{aligned}
 $$
   
@@ -74,15 +74,15 @@ $$
   
 $$
 \begin{aligned}
-\bar{x}&=\alpha^3\bar{x}_{t-3}+\alpha^2(1-\alpha)x_{t-2}+\alpha(1-\alpha)x_{t-1}+(1-\alpha)x_{t}
+\bar{x}&=\alpha^3\bar{x}_{t-3}+\alpha^2(1-\alpha)x_{t-2}+\alpha(1-\alpha)x_{t-1}+(1-\alpha)x_{t}\\
 \end{aligned}
 $$
   
-와 같이 정리가 가능하다. 여기서 $0 < \alpha < 1$ 이기 때문에
+와 같이 정리가 가능하다. 여기서 \\(0 < \alpha < 1\\) 이기 때문에
   
 $$
 \begin{aligned}
-\alpha^2(1-\alpha) < \alpha(1-\alpha) < 1-\alpha
+\alpha^2(1-\alpha) < \alpha(1-\alpha) < 1-\alpha\\
 \end{aligned}
 $$
   
